@@ -9,8 +9,12 @@ params:
   socialIcons:
     - name: "twitter"
       url: "https://twitter.com/GatoMaconhado_"
+      label: "Twitter"
+      footer: true
     - name: "instagram"
       url: "https://instagram.com/gfcramos"
+      label: "Instagram"
+      footer: true
   
   assets:
     disableFingerprinting: true
@@ -25,6 +29,34 @@ params:
   fontFamily:
     primary: "SF Mono"
     secondary: "Helvetica"
+
+  # UI/UX Improvements
+  showtoc: true
+  tocopen: true
+  showpagemeta: true
+  showpostnavlinks: true
+  showsharebuttons: true
+  showallpagesinlist: true
+  showbreadcrumbs: true
+  showscrolltotop: true
+  showsearch: true
+  # Enable Light/Dark Mode
+  defaultTheme: "dark" # dark, light
+  disableThemeToggle: false
+
+  # Home page profile mode
+  profileMode:
+    enabled: true
+    title: "Sherlock Ramos"
+    subtitle: "Desenvolvedor, escritor e entusiasta de tecnologia."
+    imageUrl: "https://avatars.githubusercontent.com/u/13809093?v=4"
+    imageWidth: 150
+    imageHeight: 150
+    buttons:
+      - name: "Blog"
+        url: "/posts"
+      - name: "Sobre"
+        url: "/about"
 
 outputs:
   home:
