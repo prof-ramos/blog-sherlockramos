@@ -1,0 +1,33 @@
+baseURL: "https://prof-ramos.github.io/blog-sherlockramos/"
+languageCode: "pt-br"
+title: "Blog Sherlock Ramos"
+theme: "PaperMod"
+
+params:
+  author: "Gabriel Ramos"
+  description: "Um blog pessoal minimalista."
+  socialIcons:
+    - name: "twitter"
+      url: "https://twitter.com/GatoMaconhado_"
+    - name: "instagram"
+      url: "https://instagram.com/gfcramos"
+  
+  assets:
+    disableFingerprinting: true
+
+  # Paleta de Cores
+  colors:
+    primary: "#141A28"
+    text: "#FCFFFB"
+    icons: "#F2E2C8"
+
+  # Tipografia
+  fontFamily:
+    primary: "SF Mono"
+    secondary: "Helvetica"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
