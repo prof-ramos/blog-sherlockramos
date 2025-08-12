@@ -1,0 +1,37 @@
+---
+description: "CSS quality rules for Blog Sherlock Ramos"
+globs: ["*.css", "*.scss", "*.sass"]
+alwaysApply: true
+---
+
+# CSS Quality Rules - Blog Sherlock Ramos
+
+## Variáveis CSS
+- Use variáveis CSS para valores reutilizáveis: `var(--gap)`, `var(--main-width)`
+- Defina variáveis no arquivo [theme-vars.css](mdc:themes/PaperMod/assets/css/core/theme-vars.css)
+- Use nomes descritivos para variáveis:
+  ```css
+  /* ✅ Bom */
+  --spacing-base: 24px;
+  --layout-main-width: 720px;
+  
+  /* ❌ Evitar */
+  --theme: rgb(255, 255, 255);
+  --entry: rgb(255, 255, 255);
+  ```
+
+## Organização de Arquivos
+- CSS comum em [assets/css/common/](mdc:themes/PaperMod/assets/css/common/)
+- Estilos do tema em [assets/css/core/](mdc:themes/PaperMod/assets/css/core/)
+- Estilos específicos em [assets/css/includes/](mdc:themes/PaperMod/assets/css/includes/)
+- Estilos estendidos em [assets/css/extended/](mdc:themes/PaperMod/assets/css/extended/)
+
+## Responsividade
+- Use media queries para diferentes tamanhos de tela
+- Consulte [zmedia.css](mdc:themes/PaperMod/assets/css/core/zmedia.css) para breakpoints
+- Mantenha design mobile-first
+
+## Performance
+- Use variáveis CSS para evitar repetição
+- Mantenha seletores simples e eficientes
+- Evite aninhamento excessivo de seletores

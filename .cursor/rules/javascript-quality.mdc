@@ -1,0 +1,58 @@
+---
+description: "JavaScript quality rules for Blog Sherlock Ramos"
+globs: ["*.js", "*.ts", "*.jsx", "*.tsx"]
+alwaysApply: true
+---
+
+# JavaScript Quality Rules - Blog Sherlock Ramos
+
+## Estrutura de Funções
+- Mantenha funções pequenas e com responsabilidade única
+- Refatore código complexo em funções menores
+- Evite aninhamento excessivo de condicionais
+
+## Tratamento de Erros
+- Use try-catch para operações que podem falhar onde você pode tomar ação útil:
+
+```javascript
+// ✅ DO: Good error handling with meaningful action
+try {
+    await navigator.clipboard.writeText(codeblock.textContent);
+    copyingDone();
+} catch (error) {
+    console.error('Falha ao copiar código:', error);
+    // Implementar fallback
+}
+
+// ✅ DO: Lightweight error handling for promises
+fetch('/api/data')
+    .then(response => response.json())
+    .catch(error => console.error('Erro na requisição:', error));
+
+// ❌ DON'T: Avoid broad error swallowing
+try {
+    // código que pode falhar
+} catch (error) {
+    // Sem ação útil ou logging
+}
+```
+
+## Nomenclatura
+- Use nomes descritivos para variáveis e funções:
+  ```javascript
+  // ✅ Bom
+  let firstResult, lastResult, currentElement = null;
+  
+  // ❌ Evitar
+  let first, last, current_elem = null;
+  ```
+
+## Comentários
+- Documente funções complexas com JSDoc
+- Adicione comentários para lógica de negócio não óbvia
+- Use comentários para explicar "por que" não "o que"
+
+## Arquivos JavaScript
+- [fastsearch.js](mdc:themes/PaperMod/assets/js/fastsearch.js) - funcionalidade de busca
+- [license.js](mdc:themes/PaperMod/assets/js/license.js) - informações de licença
+- Mantenha código modular e testável

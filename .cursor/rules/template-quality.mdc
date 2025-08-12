@@ -1,0 +1,45 @@
+---
+description: "Template quality rules for Blog Sherlock Ramos"
+globs: ["*.html", "*.md", "*.gohtml"]
+alwaysApply: true
+---
+
+# Template Quality Rules - Blog Sherlock Ramos
+
+## Estrutura de Templates
+- Use layouts padrão em [layouts/_default/](mdc:themes/PaperMod/layouts/_default/)
+- Crie partials reutilizáveis em [layouts/partials/](mdc:layouts/partials/)
+- Mantenha templates simples e legíveis
+
+## Reutilização de Código
+- Evite duplicação criando partials para elementos comuns
+- Use partials para:
+  - [post_meta.html](mdc:layouts/partials/post_meta.html) - metadados de posts
+  - [cover.html](mdc:layouts/partials/cover.html) - imagens de capa
+  - [breadcrumbs.html](mdc:layouts/partials/breadcrumbs.html) - navegação
+
+## Validação de Dados
+- Sempre valide a existência de variáveis antes de usá-las:
+  ```html
+  <!-- ✅ Bom -->
+  {{- if .Description }}
+  <div class="post-description">{{ .Description }}</div>
+  {{- end }}
+  
+  <!-- ❌ Evitar -->
+  <div class="post-description">{{ .Description }}</div>
+  ```
+
+## Espaçamento e Formatação
+- Use `{{- }}` para remover espaços em branco desnecessários
+- Mantenha indentação consistente
+- Use comentários para explicar lógica complexa:
+  ```html
+  {{- /* markup.highlight.noClasses should be set to `false` */}}
+  {{- /* order is important */}}
+  ```
+
+## Templates Específicos
+- [single.html](mdc:themes/PaperMod/layouts/_default/single.html) - layout de posts individuais
+- [list.html](mdc:themes/PaperMod/layouts/_default/list.html) - layout de listas
+- [archives.html](mdc:themes/PaperMod/layouts/_default/archives.html) - arquivo de posts

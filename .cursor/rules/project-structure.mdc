@@ -1,0 +1,32 @@
+---
+description: "Project structure guide for Blog Sherlock Ramos"
+globs: ["*.md", "*.yml", "*.toml"]
+alwaysApply: true
+---
+# Project Structure Guide - Blog Sherlock Ramos
+
+## Arquivos Principais
+- [config.yml](mdc:config.yml) - configurações principais do Hugo
+- [hugo.toml](mdc:hugo.toml) - configurações alternativas
+- [README.md](mdc:README.md) - documentação do projeto
+
+## Estrutura de Diretórios
+- `content/` - conteúdo do blog (posts, páginas)
+- `themes/PaperMod/` - tema principal (não modificar diretamente)
+- `archetypes/` - templates para novos posts
+- `public/` - site gerado (não versionar)
+
+## Tema PaperMod
+- **NÃO modifique** arquivos em `themes/PaperMod/` diretamente
+- Use parâmetros em [config.yml](mdc:config.yml) para personalizações
+- Para modificações do tema, crie layouts customizados em `layouts/`
+
+## Configuração
+- Modifique apenas [config.yml](mdc:config.yml) para personalizações
+- Use parâmetros do tema para funcionalidades
+- Mantenha `baseURL` correto para GitHub Pages
+
+## Desenvolvimento
+- Use `hugo server -D` para desenvolvimento local
+- Posts devem seguir o formato Markdown com frontmatter
+- Mantenha estrutura de diretórios organizada

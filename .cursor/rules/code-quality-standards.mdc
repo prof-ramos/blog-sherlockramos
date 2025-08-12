@@ -1,0 +1,102 @@
+---
+description: "Code quality standards for Blog Sherlock Ramos"
+globs: ["*.js", "*.ts", "*.py", "*.go", "*.html", "*.css"]
+alwaysApply: true
+---
+
+# Code Quality Standards - Blog Sherlock Ramos
+
+## Princípios Gerais
+- **Legibilidade** é prioridade máxima
+- **Manutenibilidade** através de código limpo e bem organizado
+- **Reutilização** evitando duplicação de código
+- **Consistência** em nomenclatura e formatação
+
+## Nomenclatura
+- Use nomes descritivos e significativos
+- Evite abreviações confusas
+- Mantenha consistência em todo o projeto
+- Siga convenções específicas de cada linguagem
+
+```javascript
+// ✅ DO: Descriptive names
+const userProfile = getUserById(userId);
+const isUserAuthenticated = checkAuthStatus();
+
+// ❌ DON'T: Confusing abbreviations
+const up = getUserById(uid);
+const iua = checkAuthStatus();
+```
+
+## Organização do Código
+- Separe responsabilidades claramente
+- Mantenha funções e classes pequenas
+- Agrupe código logicamente relacionado
+- Evite complexidade ciclomática alta
+
+```javascript
+// ✅ DO: Single responsibility
+function validateEmail(email) { /* validation logic */ }
+function sendEmail(email, content) { /* sending logic */ }
+
+// ❌ DON'T: Multiple responsibilities
+function handleEmail(email, content) { 
+    /* validation + sending + logging + everything else */ 
+}
+```
+
+## Tratamento de Erros
+- Implemente estratégias robustas de tratamento de erro
+- Forneça mensagens de erro úteis
+- Implemente fallbacks apropriados
+- Valide entradas sempre que possível
+
+```javascript
+// ✅ DO: Proper error handling
+try {
+    const result = await riskyOperation();
+    return result;
+} catch (error) {
+    logger.error('Operation failed:', error);
+    return fallbackValue;
+}
+
+// ❌ DON'T: Silent failures
+const result = await riskyOperation(); // What if it fails?
+```
+
+## Comentários e Documentação
+- Comente apenas o necessário
+- Use comentários para explicar "por que" não "o que"
+- Documente APIs e funcionalidades complexas
+- Mantenha comentários atualizados
+
+```javascript
+// ✅ DO: Explain why, not what
+// Using setTimeout to debounce rapid user input
+setTimeout(processInput, 300);
+
+// ❌ DON'T: Obvious comments
+// Set timeout to 300ms
+setTimeout(processInput, 300);
+```
+
+## Performance e Segurança
+- Otimize código para eficiência
+- Considere implicações de segurança
+- Valide e sanitize entradas
+- Use práticas recomendadas de cada tecnologia
+
+```javascript
+// ✅ DO: Input validation and sanitization
+const sanitizedInput = DOMPurify.sanitize(userInput);
+if (isValidEmail(email)) { /* proceed */ }
+
+// ❌ DON'T: Trust user input blindly
+document.body.innerHTML = userInput; // XSS vulnerability
+```
+
+## Arquivos de Referência
+- [config.yml](mdc:config.yml) - exemplo de configuração limpa
+- [README.md](mdc:README.md) - documentação do projeto
+- Templates em [themes/PaperMod/layouts/](mdc:themes/PaperMod/layouts/) - exemplos de estrutura

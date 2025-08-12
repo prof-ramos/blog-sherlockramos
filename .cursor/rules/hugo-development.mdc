@@ -1,0 +1,54 @@
+---
+description: "Hugo development rules for Blog Sherlock Ramos"
+globs: ["*.mdc"]
+alwaysApply: true
+---
+
+# Hugo Development Rules - Blog Sherlock Ramos
+
+## Estrutura do Projeto
+- O tema principal é [PaperMod](mdc:themes/PaperMod/) - não modifique arquivos do tema diretamente
+- Use [archetypes/default.md](mdc:archetypes/default.md) como template para novos posts
+- Configurações principais estão em [config.yml](mdc:config.yml)
+
+## Templates Hugo
+- Sempre use `{{- }}` para remover espaços em branco desnecessários
+- Valide a existência de variáveis antes de usá-las:
+
+```html
+<!-- ✅ DO: Use conditional helpers with trimmed delimiters -->
+{{- with .Params.showToc -}}
+  {{- partial "toc.html" . -}}
+{{- end -}}
+
+<!-- ❌ DON'T: Unsafe form without validation -->
+{{ if .Params.showToc }}
+  {{ partial "toc.html" . }}
+{{ end }}
+```
+
+- Use partials para código reutilizável em [layouts/partials/](mdc:layouts/partials/)
+- Mantenha templates simples e legíveis
+
+## Conteúdo
+- Posts devem seguir o formato Markdown com frontmatter
+- Use [content/_index.md](mdc:content/_index.md) como página inicial
+- Mantenha [content/about.md](mdc:content/about.md) atualizado
+
+## Configuração
+- Modifique apenas [config.yml](mdc:config.yml) para personalizações
+- Use parâmetros do tema PaperMod para funcionalidades
+- Mantenha `baseURL` correto para deploy no GitHub Pages:
+
+```yaml
+# ✅ DO: User/Organization pages
+baseURL: "https://usuario.github.io/"
+publishDir: "public"
+
+# ✅ DO: Project pages
+baseURL: "https://usuario.github.io/repo/"
+publishDir: "docs"
+
+# ❌ DON'T: Never leave baseURL pointing to localhost
+baseURL: "http://localhost:1313/"
+```
